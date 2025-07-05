@@ -10,6 +10,15 @@
             <small *ngIf="nameValidate?.hasError('required')">Full name is required.</small>
           </div>
         </div>
+        <div class="fom-group">
+          <label for="mobileNo">Mobile Numbers</label>
+          <input type="text" formControlName="mobileNo" class="form-control mb-3 mt-2" id="mobileNo" placeholder="Please enter mobile number">
+          <div *ngIf="mobileValidate?.touched && mobileValidate?.invalid" class="text-danger">
+            <small *ngIf="mobileValidate?.hasError('required')">Phone is required.</small>
+            <small *ngIf="mobileValidate?.hasError('minlength')">Mobile no should be minimum 10 digit.</small>
+            <small *ngIf="mobileValidate?.hasError('maxlength')">Mobile no should be max 12 digit.</small>
+          </div>
+        </div>
         <div class="fom-group mb-2">
           <label for="empType">Employment Type</label>
           <select id="empType" class="form-control mt-2"  formControlName="empType">

@@ -20,6 +20,7 @@ export class ProfileComponent implements AfterViewInit {
     this.profileForm = this.fb.group({
       fullName: new FormControl('', [Validators.required]),
       empType: new FormControl('', [Validators.required]),
+      mobileNo: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
@@ -31,6 +32,7 @@ export class ProfileComponent implements AfterViewInit {
         this.profileForm.patchValue({
           fullName: this.profileData?.fullName,
           empType: this.profileData?.empType,
+          mobileNo: this.profileData?.mobileNo,
           email: this.profileData?.email,
         })
       },
@@ -53,6 +55,10 @@ export class ProfileComponent implements AfterViewInit {
 
   get emailValidate() {
     return this.profileForm.get('email');
+  }
+  
+  get mobileValidate(){
+    return this.profileForm.get('mobileNo');
   }
 
   updateProfile() {

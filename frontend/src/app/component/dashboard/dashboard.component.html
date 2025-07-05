@@ -6,19 +6,18 @@
         <thead class="table-dark">
           <tr>
             <th>S. No.</th>
-            <th>Patient ID</th>
+            <!-- <th>Patient ID</th> -->
             <th>Full Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Employment Type</th>
-            <!-- <th>Action</th> -->
           </tr>
         </thead>
         <tbody class="gray">
           @for(patient of patientsList; track patient._id){
             <tr>
               <td>{{$index + 1}}</td>
-              <td>{{patient?._id}}</td>
+              <!-- <td>{{patient?._id}}</td> -->
               <td>{{patient?.fullName}}</td>
               <td>{{patient?.email}}</td>
               <td>{{patient?.mobileNo}}</td>

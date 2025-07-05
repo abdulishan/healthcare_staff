@@ -37,7 +37,7 @@ const patientController = {
 
   authSignup: async (req, res) => {
     const saltRounds = 10;
-    let bodyData = req.body;
+    const bodyData = req.body;
     console.log("bodyData", bodyData)
     try {
       if (!bodyData || !bodyData?.email || !bodyData?.password) throw new Error('Payload Email and password is required.');

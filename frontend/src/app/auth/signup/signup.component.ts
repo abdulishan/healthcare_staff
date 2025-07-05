@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
       this.signupForm = this.fb.group({
         fullName: new FormControl('', [Validators.required]),
         empType: new FormControl('', [Validators.required]),
+        mobileNo: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]),
         email: new FormControl('',[Validators.required, Validators.email]),
         password: new FormControl('',[Validators.required, Validators.minLength(2), Validators.maxLength(15)]),
         confirmPassword: new FormControl('',[Validators.required]),
@@ -46,6 +47,10 @@ export class SignupComponent implements OnInit {
 
   get emailValidate(){
     return this.signupForm.get('email');
+  }
+
+  get mobileValidate(){
+    return this.signupForm.get('mobileNo');
   }
 
   get passwordValidate(){
