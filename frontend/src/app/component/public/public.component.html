@@ -1,1 +1,12 @@
-<p>public works!</p>
+<div class="container-fluid">
+  <h3>Latest Health Information</h3>
+  <div class="row">
+    <div class="col-10 col-md-10 offset-md-1 offset-1">
+      <div class="card p-3 my-3" *ngFor="let item of healthReports">
+        <h6>{{item?.illnessName}}</h6>
+        <p>{{item?.description}}</p>
+        <button class="btn btn-success read-btn">Read More</button>
+      </div>
+    </div>
+  </div>
+</div>
