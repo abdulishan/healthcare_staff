@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <h1 class="text-center mb-2 text-success">Patient / Provider Login Page</h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-l-4 offset-md-4 offset-l-4">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="email" appColorChange>Email Address</label>
+          <input type="text" formControlName="email" class="form-control mb-3 mt-2" id="email" placeholder="Please enter your email">
+          <div *ngIf="emailValidate?.touched && emailValidate?.invalid" class="text-danger">
+            <small *ngIf="emailValidate?.errors?.['required']">Email is required.</small>
+            <small *ngIf="emailValidate?.errors?.['email']">Please enter valid email.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control mb-3 mt-2" id="password" placeholder="Pleas enter password">
+          <div *ngIf="passwordValidate?.touched && passwordValidate?.invalid" class="text-danger">
+            <small *ngIf="passwordValidate?.errors?.['required']">Password is required.</small>
+            <small *ngIf="passwordValidate?.errors?.['minlength']">Password should be minimum 2 charactors.</small>
+            <small *ngIf="passwordValidate?.errors?.['maxlength']">Password should be max 15 charactors.</small>
+          </div>
+        </div>
+
+        <button type="button" (click)="submitLogin()" [disabled]="loginForm.invalid" class="btn btn-success mt-3">Signin</button>
+      </form>
+    </div>
+  </div>
+</div>

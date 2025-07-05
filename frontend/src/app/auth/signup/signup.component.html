@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <h1 class="text-center mb-2 text-success">Patient / Provider Signup Page</h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-l-4 offset-md-4 offset-l-4">
+      <form [formGroup]="signupForm">
+        <div class="fom-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" formControlName="fullName" class="form-control mb-3 mt-2" id="fullName" placeholder="Please enter your Full Name">
+          <div *ngIf="nameValidate?.touched && nameValidate?.invalid" class="text-danger">
+            <small *ngIf="nameValidate?.hasError('required')">Full name is required.</small>
+          </div>
+        </div>
+        <div class="fom-group mb-2">
+          <label for="empType">Employment Type</label>
+          <select id="empType" class="form-control mt-2"  formControlName="empType">
+            <option value="">Select Employment Type</option>
+            <option value="Patients">Patients</option>
+            <option value="Providers">Providers</option>
+          </select>
+          <div *ngIf="empValidate?.touched && empValidate?.invalid" class="text-danger">
+            <small *ngIf="empValidate?.hasError('required')">Employment type is required.</small>
+          </div>
+        </div>
+        <div class="fom-group">
+          <label for="email">Email Address</label>
+          <input type="text" formControlName="email" class="form-control mb-3 mt-2" id="email" placeholder="Please enter your email">
+          <div *ngIf="emailValidate?.touched && emailValidate?.invalid" class="text-danger">
+            <small *ngIf="emailValidate?.hasError('required')">Email is required.</small>
+            <small *ngIf="emailValidate?.hasError('email')">Please enter valid email.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="passwords">Password</label>
+          <input type="password" formControlName="password" class="form-control mb-3 mt-2" id="passwords" placeholder="Pleas enter password">
+          <div *ngIf="passwordValidate?.touched && passwordValidate?.invalid" class="text-danger">
+            <small *ngIf="passwordValidate?.hasError('required')">Password is required.</small>
+            <small *ngIf="passwordValidate?.hasError('minlength')">Password should be minimum 2 charactors.</small>
+            <small *ngIf="passwordValidate?.hasError('maxlength')">Password should be max 15 charactors.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ConfPassword">Confirm Password</label>
+          <input type="password" formControlName="confirmPassword" class="form-control mb-3 mt-2" id="ConfPassword" placeholder="Pleas enter confirm password">
+          <div *ngIf="cnfPassword?.touched && cnfPassword?.invalid" class="text-danger">
+            <small *ngIf="cnfPassword?.hasError('required')">Confirm password is required.</small>
+            
+          </div>
+          <div  *ngIf="signupForm?.hasError('mismatchPassword') && cnfPassword?.touched" class="text-danger">
+            <small>Confirm Password is not matched with password.</small>
+          </div>
+        </div>
+
+        <button type="button" (click)="submitLogin()"  class="btn btn-success mt-3">Signup</button>
+      </form>
+    </div>
+  </div>
+</div>
